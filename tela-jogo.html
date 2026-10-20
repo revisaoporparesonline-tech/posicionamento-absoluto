@@ -30,7 +30,22 @@
             right: 100px; /*left*/
             top: 30px; /* bottom*/
             z-index: 2;
+            /* animation: funcaoAnimacao infinite; */
+            animation-duration: 3s;
+        }
 
+        @keyframes funcaoAnimacao{
+          
+            from,to{
+               
+                background-color: red;
+            }
+            30%{
+                scale: 110%;
+            }
+            50%{
+                background-color: green;
+            }
         }
 
         #quadradinho{
@@ -42,22 +57,39 @@
             top: 30px; /* bottom*/
             z-index: 1;
         }
+
+        #gato{
+            animation: gatoBebado 5s linear infinite;
+        }
+        @keyframes gatoBebado{
+            from,to {
+                transform: skew(10deg);
+            }
+            50%{
+                transform: skew(-10deg);
+            }
+        }
     </style>
 </head>
 <body>
     <div id="telaJogo">
-        <div id="bolinha" ></div>
+        <div id="bolinha" onclick="iniciarAnimacao()" ></div>
         <div id="quadradinho"
              style="right: 1px;" 
              onclick="deslocarLado(50)"
              ondblclick="aumentarVelocidade()"
              ></div>
+        <img src="foto.jpg" width="200" id="gato">
     </div>
 
     <script>
         velocidade = 0;
         function aumentarVelocidade(){
             velocidade += 10
+        }
+
+        function iniciarAnimacao(){
+            document.getElementById('bolinha').style.animation = 'funcaoAnimacao 2s infinite alternate'
         }
 
         function deslocarLado(desloc){
