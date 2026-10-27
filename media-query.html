@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: blue;
+        }
+        /* 
+            @media (max...) and (orientation: portrait)
+            @media print
+        */
+        @media print{
+            /* modo impressao */
+            h1 {
+                display: none;
+            }
+        }
+        @media (max-width: 600px){
+            body {
+                background-color: red;
+            }
+        } 
+
+
+        /* Para fazer darkmode com vars */
+        :root{
+            --bg-color: rgb(212, 255, 0);
+            --cor-texto: green;
+        }
+
+        @media (prefers-color-scheme: dark){
+            /*regras para darkmode*/
+            :root{
+                --bg-color: rgb(0, 133, 51);
+                --cor-texto: rgb(255, 17, 0);
+            }
+        }
+
+        p{
+            background-color: var(--bg-color);
+            color: var(--cor-texto);
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Titulo</h1>
+    <p>teste</p>
+</body>
+</html>
